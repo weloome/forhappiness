@@ -1,0 +1,2 @@
+insert into `customer` (`id`, `email`, `first_name`, `middle_name`, `last_name`, `full_name`, `phone`, `dob`, `gender`)
+values (1, 'db@test.com', 'danbi', 'vivi', 'lee', '고양이는귀엽다', '0108888888', now(), 1 );

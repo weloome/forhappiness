@@ -1,0 +1,11 @@
+02:30:18.842 [INFO ] [lettuce-eventExecutorLoop-1-2] [i.l.core.protocol.ConnectionWatchdog] - Reconnecting, last destination was localhost/127.0.0.1:6379
+02:30:18.887 [INFO ] [lettuce-nioEventLoop-6-2] [i.l.c.protocol.ReconnectionHandler] - Reconnected to localhost/<unresolved>:6379
+02:30:24.738 [INFO ] [lettuce-eventExecutorLoop-1-6] [i.l.core.protocol.ConnectionWatchdog] - Reconnecting, last destination was localhost/<unresolved>:6379
+02:30:24.740 [WARN ] [lettuce-nioEventLoop-6-6] [i.l.core.protocol.ConnectionWatchdog] - Cannot reconnect to [localhost/<unresolved>:6379]: Connection refused: localhost/127.0.0.1:6379
+02:30:26.358 [INFO ] [SpringApplicationShutdownHook] [o.s.o.j.LocalContainerEntityManagerFactoryBean] - Closing JPA EntityManagerFactory for persistence unit 'commonEntityManager'
+02:30:26.363 [TRACE] [SpringApplicationShutdownHook] [o.h.type.spi.TypeConfiguration$Scope] - Handling #sessionFactoryClosed from [org.hibernate.internal.SessionFactoryImpl@5c3908a2] for TypeConfiguration
+02:30:26.364 [DEBUG] [SpringApplicationShutdownHook] [o.h.type.spi.TypeConfiguration$Scope] - Un-scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration$Scope@112dac72] from SessionFactory [org.hibernate.internal.SessionFactoryImpl@5c3908a2]
+02:30:26.505 [INFO ] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-2 - Shutdown initiated...
+02:30:27.116 [INFO ] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-2 - Shutdown completed.
+02:30:27.117 [INFO ] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
+02:30:27.119 [INFO ] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.

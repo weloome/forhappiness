@@ -1,13 +1,13 @@
-package wimp.forhappiness;
+package com.wimp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ForhappinessApplicationTests {
+class WimpApplicationTests {
 
-    @Test
-    void contextLoads() {
-    }
+	@Test
+	void contextLoads() {
+	}
 
 }

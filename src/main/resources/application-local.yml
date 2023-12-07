@@ -1,0 +1,90 @@
+server:
+  port: 5000
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 500MB
+  datasource:
+    master:
+      driverClassName: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3306/wimp?useSSL=false&characterEncoding=UTF-8&serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true
+      username: root
+      password: secret
+    slave:
+      driverClassName: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3306/wimp?useSSL=false&characterEncoding=UTF-8&serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true
+      username: root
+      password: secret
+  jpa:
+    generate-ddl: false
+    database-platform: org.hibernate.dialect.MySQLDialect
+    database: mysql
+    properties:
+      hibernate:
+        format_sql: true
+        enable_lazy_load_no_trans: true
+        hibernate.jdbc.batch_size: 300
+        hibernate.order_inserts: true
+        hibernate.order_updates: true
+  flyway:
+    enabled: true
+    url: jdbc:mysql://localhost:3306/wimp?useSSL=false&characterEncoding=UTF-8&serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true
+    user: root
+    password: secret
+    sql-migration-suffixes: .ddl
+    baseline-on-migrate: true
+    baseline-version: 1
+  data:
+    redis:
+      host: localhost
+      port: 6379
+  cache:
+    type: redis
+    redis:
+      cache-null-values: true
+      time-to-live: 3600000
+  mail:
+    host: smtp.office365.com
+    port: 587
+    username: gentlemonster_it@gentlemonster.com
+    password: E~mNs+T;!M7P3a/
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type: TRACE
+    org.hibernate.orm.jdbc.bind: trace
+  file:
+    path: ${user.dir}/log
+  aws:
+    cloud-watch:
+      id:
+      secret:
+  slack:
+    webhook-uri: https://hooks.slack.com/services/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
+jwt:
+  header: Authorization
+  secret: 9675d850bcd22bc5daf1bac0cd4f6f9dd44a6367f4e9c8569d4ccf9a44dceed0eab1cf09883b9cf890542798eb59f1c19f53eaa03daa2e27274873c88e45021a
+  token-validity-in-seconds: 86400
+springdoc:
+  swagger-ui:
+    path : /swagger-ui.html
+management:
+  endpoints:
+    web:
+      base-path: /healthmgnt
+      exposure:
+        include: health
+#        exclude: auditevents,beans,conditions,configprop,env,health,heapdump,httptrace,info,loggers,mappings,metrics,scheduledtasks,threaddump

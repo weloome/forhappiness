@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds">
+
+    <springProperty name="SENTRY_DSN" source="logging.sentry.dsn"/>
+    <springProperty name="SLACK_WEBHOOK_URI" source="logging.slack.webhook-uri"/>
+    <springProperty name="AWS_CLOUD_WATCH_KEY" source="logging.aws.cloud-watch.id"/>
+    <springProperty name="AWS_CLOUD_WATCH_SECRET" source="logging.aws.cloud-watch.secret"/>
+
+    <include resource="logback-appender/file-appender.xml"/>
+    <include resource="logback-appender/console-appender.xml"/>
+    <include resource="logback-appender/slack-appender.xml"/>
+    <!--    <include resource="logback-appender/cloudwatch-appender.xml"/>-->
+    <!--    <include resource="logback-appender/sentry-appender.xml"/>-->
+
+    <springProfile name="local">
+        <root level="INFO">
+            <appender-ref ref="CONSOLE_POLICY"/>
+            <appender-ref ref="FILE_POLICY"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="dev">
+        <root level="INFO">
+            <appender-ref ref="CONSOLE_POLICY"/>
+<!--            <appender-ref ref="ASYNC_SLACK_POLICY"/>-->
+        </root>
+    </springProfile>
+
+    <springProfile name="prod">
+        <root level="INFO">
+            <appender-ref ref="CONSOLE_POLICY"/>
+            <appender-ref ref="ASYNC_SLACK_POLICY"/>
+        </root>
+    </springProfile>
+
+</configuration>
